@@ -1,0 +1,25 @@
+<template>
+  <ai-dialog>
+    <ai-dialog-header>${question}</ai-dialog-header>
+
+    <ai-dialog-body>
+        
+        
+        <h2>Prompt (does not trigger answerChanged)</h2>
+    
+        <form submit.trigger="controller.ok(answer)">
+            <input type="text" value.bind="answer" style="width: 100%; line-height: 16px; font-size: 16px" attach-focus>
+        </form>
+        
+        
+        <require from="./custom-element-in-modal"></require>
+        <custom-element-in-modal></custom-element-in-modal>
+        
+    </ai-dialog-body>
+
+    <ai-dialog-footer>
+      <button click.trigger="controller.cancel()">Cancel</button>
+      <button click.trigger="controller.ok(answer)">Ok</button>
+    </ai-dialog-footer>
+  </ai-dialog>
+</template>
